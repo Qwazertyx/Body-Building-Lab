@@ -2,10 +2,10 @@ import type { Lang } from "./types";
 
 /** Chaines d'interface statiques (navigation, boutons, titres...). */
 export const UI = {
-  appName: { fr: "Vico BodyBuilding", en: "Vico BodyBuilding" },
+  appName: { fr: "Vico Body Building Lab", en: "Vico Body Building Lab" },
   tagline: {
-    fr: "Ton coach de poche a la salle",
-    en: "Your pocket coach at the gym",
+    fr: "Le laboratoire de ton physique, dans ta poche",
+    en: "Your physique lab, in your pocket",
   },
   nav: {
     home: { fr: "Muscles", en: "Muscles" },
@@ -69,8 +69,8 @@ export const UI = {
     english: { fr: "Anglais", en: "English" },
     about: { fr: "A propos", en: "About" },
     aboutText: {
-      fr: "Vico BodyBuilding est une aide pour debutants et confirmes. Les informations sont educatives et ne remplacent pas l'avis d'un professionnel de sante. Les sources sont listees dans le README du projet.",
-      en: "Vico BodyBuilding is a helper for beginners and advanced lifters. The information is educational and does not replace professional medical advice. Sources are listed in the project README.",
+      fr: "Vico Body Building Lab (VicoBBL) est une aide pour debutants et confirmes. Les informations sont educatives et ne remplacent pas l'avis d'un professionnel de sante. Les sources sont listees dans le README du projet.",
+      en: "Vico Body Building Lab (VicoBBL) is a helper for beginners and advanced lifters. The information is educational and does not replace professional medical advice. Sources are listed in the project README.",
     },
   },
   disclaimer: {

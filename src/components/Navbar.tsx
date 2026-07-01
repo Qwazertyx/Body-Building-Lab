@@ -27,7 +27,7 @@ export function Navbar() {
             V
           </span>
           <span className="hidden text-lg font-extrabold tracking-tight sm:block">
-            Vico<span className="text-brand">BB</span>
+            Vico<span className="text-brand">BBL</span>
           </span>
         </Link>
 

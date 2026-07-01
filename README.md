@@ -1,6 +1,8 @@
-# 💪 Vico BodyBuilding
+# 💪 Vico Body Building Lab (VicoBBL)
 
-Une application web (Next.js) qui te sert de **coach de poche à la salle de sport**. Clique sur un muscle du corps humain pour découvrir les meilleures machines/exercices (classés et expliqués), calcule tes besoins caloriques, et suis des routines d'échauffement et d'étirement.
+> 🌐 **Site en ligne : [vicobbl.vercel.app](https://vicobbl.vercel.app)**
+
+**Le laboratoire de ton physique, dans ta poche.** Une application web (Next.js) qui te sert de coach à la salle de sport. Clique sur un muscle du corps humain pour découvrir les meilleures machines/exercices (classés et expliqués), calcule tes besoins caloriques, et suis des routines d'échauffement et d'étirement.
 
 Pensée pour **débutants comme experts**, entièrement en **français** avec un **switch anglais** dans les paramètres.
 
@@ -43,8 +45,11 @@ npm start
 
 1. Pousse ce dépôt sur GitHub.
 2. Sur [vercel.com](https://vercel.com), clique **New Project** et importe le dépôt.
-3. Vercel détecte Next.js automatiquement — aucune configuration nécessaire.
-4. Clique **Deploy**. 🎉
+3. Nomme le projet **`vicobbl`** pour obtenir l'URL **`vicobbl.vercel.app`**.
+4. Vercel détecte Next.js automatiquement — aucune configuration nécessaire.
+5. Clique **Deploy**. 🎉
+
+> URL de production : **[vicobbl.vercel.app](https://vicobbl.vercel.app)**
 
 ---
 

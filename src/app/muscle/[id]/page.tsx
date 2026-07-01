@@ -8,9 +8,9 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { id: string } }) {
   const muscle = getMuscle(params.id);
-  if (!muscle) return { title: "Muscle - Vico BodyBuilding" };
+  if (!muscle) return { title: "Muscle - VicoBBL" };
   return {
-    title: `${muscle.name.fr} - Vico BodyBuilding`,
+    title: `${muscle.name.fr} - VicoBBL`,
     description: muscle.description.fr,
   };
 }

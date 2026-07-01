@@ -7,7 +7,7 @@ import { Navbar } from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Vico BodyBuilding - Ton coach de poche a la salle",
+  title: "Vico Body Building Lab (VicoBBL) - Le laboratoire de ton physique",
   description:
     "Assistant de salle de sport : clique sur un muscle pour decouvrir les meilleures machines, la nutrition (calculateur de calories), l'echauffement et les etirements. Debutant comme expert. FR/EN.",
   keywords: [
