@@ -2,6 +2,7 @@
 
 import { useSettings } from "@/lib/i18n";
 import { UI } from "@/lib/ui-strings";
+import { ExerciseDiagram } from "@/components/ExerciseDiagram";
 import type { Machine } from "@/lib/types";
 
 const LEVEL_COLORS: Record<Machine["level"], string> = {
@@ -38,35 +39,45 @@ export function MachineCard({ machine, rank }: { machine: Machine; rank: number 
         </div>
       </div>
 
-      <div className="space-y-4 p-4">
-        <div className="rounded-xl border border-brand/30 bg-brand/5 p-3">
-          <p className="mb-1 text-xs font-bold uppercase tracking-wide text-brand">
-            {UI.muscle.why[lang]}
+      <div className="space-y-3 p-4">
+        {/* Schema du mouvement */}
+        <div className="rounded-xl border border-app bg-card-hover/50 p-3">
+          <p className="mb-2 text-[0.7rem] font-bold uppercase tracking-wide text-muted-app">
+            🏋️ {UI.muscle.movement[lang]}
           </p>
-          <p className="text-sm text-app">{machine.whyRanked[lang]}</p>
+          <ExerciseDiagram machineId={machine.id} />
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <p className="mb-1.5 text-xs font-bold uppercase tracking-wide text-emerald-400">
+        {/* Pourquoi ce classement */}
+        <div className="rounded-xl border border-brand/30 bg-brand/5 p-3">
+          <p className="mb-1 text-[0.7rem] font-bold uppercase tracking-wide text-brand">
+            {UI.muscle.why[lang]}
+          </p>
+          <p className="text-sm leading-relaxed text-app">{machine.whyRanked[lang]}</p>
+        </div>
+
+        {/* Avantages / inconvenients */}
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3">
+            <p className="mb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-emerald-400">
               ✓ {UI.muscle.pros[lang]}
             </p>
             <ul className="space-y-1">
               {machine.pros[lang].map((p, i) => (
-                <li key={i} className="flex gap-1.5 text-sm text-muted-app">
+                <li key={i} className="flex gap-1.5 text-sm text-app">
                   <span className="text-emerald-400">+</span>
                   <span>{p}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div>
-            <p className="mb-1.5 text-xs font-bold uppercase tracking-wide text-rose-400">
+          <div className="rounded-xl border border-rose-500/20 bg-rose-500/5 p-3">
+            <p className="mb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-rose-400">
               ✕ {UI.muscle.cons[lang]}
             </p>
             <ul className="space-y-1">
               {machine.cons[lang].map((c, i) => (
-                <li key={i} className="flex gap-1.5 text-sm text-muted-app">
+                <li key={i} className="flex gap-1.5 text-sm text-app">
                   <span className="text-rose-400">−</span>
                   <span>{c}</span>
                 </li>
@@ -75,8 +86,9 @@ export function MachineCard({ machine, rank }: { machine: Machine; rank: number 
           </div>
         </div>
 
-        <div>
-          <p className="mb-1.5 text-xs font-bold uppercase tracking-wide text-muted-app">
+        {/* Conseils d'execution */}
+        <div className="rounded-xl border border-app bg-card-hover/50 p-3">
+          <p className="mb-1.5 text-[0.7rem] font-bold uppercase tracking-wide text-muted-app">
             💡 {UI.muscle.tips[lang]}
           </p>
           <ul className="space-y-1">

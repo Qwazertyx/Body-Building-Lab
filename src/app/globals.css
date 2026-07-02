@@ -80,6 +80,40 @@ body {
   --body-stroke: #c4cad4;
 }
 
+/* Schemas d'exercices (fil de fer, adaptes au theme) */
+.dia-fig {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dia-head {
+  fill: var(--card);
+  stroke: var(--text);
+  stroke-width: 4;
+}
+.dia-weight {
+  fill: none;
+  stroke: #ff6b1a;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+.dia-equip {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+.dia-equip-fill {
+  fill: var(--text-muted);
+}
+.dia-ground {
+  stroke: var(--border);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

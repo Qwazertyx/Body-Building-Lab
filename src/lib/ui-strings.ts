@@ -51,6 +51,10 @@ export const UI = {
     repRange: { fr: "Repetitions", en: "Reps" },
     level: { fr: "Niveau", en: "Level" },
     rankBadge: { fr: "Choix", en: "Pick" },
+    movement: { fr: "Le mouvement", en: "The movement" },
+    posLow: { fr: "Position basse", en: "Low position" },
+    posHigh: { fr: "Position haute", en: "High position" },
+    howTo: { fr: "Comment bien le faire", en: "How to do it right" },
   },
   levels: {
     debutant: { fr: "Debutant", en: "Beginner" },
