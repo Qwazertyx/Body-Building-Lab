@@ -41,8 +41,15 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!mounted) return;
     const root = document.documentElement;
-    if (theme === "dark") root.classList.add("dark");
-    else root.classList.remove("dark");
+    // Les variables du theme clair vivent sous `.light`, celles du sombre sous `:root`/`.dark`.
+    // Il faut donc basculer les DEUX classes, pas seulement `dark`.
+    if (theme === "dark") {
+      root.classList.add("dark");
+      root.classList.remove("light");
+    } else {
+      root.classList.add("light");
+      root.classList.remove("dark");
+    }
     try {
       window.localStorage.setItem(THEME_KEY, theme);
     } catch {

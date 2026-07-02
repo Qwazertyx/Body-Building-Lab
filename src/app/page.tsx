@@ -3,9 +3,34 @@
 import Link from "next/link";
 import { BodyMap } from "@/components/BodyMap";
 import { useSettings } from "@/lib/i18n";
+import { useFavorites } from "@/lib/favorites";
 import { UI } from "@/lib/ui-strings";
-import { FRONT_MUSCLES, BACK_MUSCLES } from "@/data/muscles";
+import { FRONT_MUSCLES, BACK_MUSCLES, getMuscle } from "@/data/muscles";
 import type { Muscle } from "@/lib/types";
+
+function FavoritesSection({ lang }: { lang: "fr" | "en" }) {
+  const { ids, ready } = useFavorites();
+  const favMuscles = ids.map(getMuscle).filter((m): m is Muscle => Boolean(m));
+  if (!ready || favMuscles.length === 0) return null;
+  return (
+    <section className="rounded-2xl border border-brand/30 bg-brand/5 p-4 sm:p-5">
+      <h2 className="mb-3 flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-brand">
+        ★ {UI.favorites.title[lang]}
+      </h2>
+      <div className="flex flex-wrap gap-2">
+        {favMuscles.map((m) => (
+          <Link
+            key={m.id}
+            href={`/muscle/${m.id}`}
+            className="rounded-full border border-brand/40 bg-card px-3 py-1.5 text-sm font-medium transition-colors hover:bg-card-hover hover:text-brand"
+          >
+            {m.name[lang]}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function MuscleChips({ title, muscles, lang }: { title: string; muscles: Muscle[]; lang: "fr" | "en" }) {
   return (
@@ -39,6 +64,8 @@ export default function HomePage() {
           {UI.home.heroSubtitle[lang]}
         </p>
       </section>
+
+      <FavoritesSection lang={lang} />
 
       <section className="rounded-2xl border border-app bg-card p-4 sm:p-6">
         <BodyMap />

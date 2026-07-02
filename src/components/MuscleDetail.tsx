@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useSettings } from "@/lib/i18n";
 import { UI } from "@/lib/ui-strings";
 import { MachineCard } from "@/components/MachineCard";
+import { MuscleActions } from "@/components/MuscleActions";
 import type { Muscle } from "@/lib/types";
 
 function InfoList({ title, items, accent }: { title: string; items: string[]; accent: string }) {
@@ -41,6 +42,7 @@ export function MuscleDetail({ muscle }: { muscle: Muscle }) {
         <h1 className="mt-1 text-3xl font-black tracking-tight sm:text-4xl">{muscle.name[lang]}</h1>
         <p className="mt-2 text-base font-medium text-muted-app">{muscle.tagline[lang]}</p>
         <p className="mt-3 text-sm leading-relaxed text-app">{muscle.description[lang]}</p>
+        <MuscleActions muscle={muscle} />
       </header>
 
       <div className="grid gap-4 md:grid-cols-2">

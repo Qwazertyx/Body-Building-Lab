@@ -3,6 +3,7 @@
 import { useSettings } from "@/lib/i18n";
 import { UI } from "@/lib/ui-strings";
 import { ExerciseDiagram } from "@/components/ExerciseDiagram";
+import { MachineLog } from "@/components/MachineLog";
 import type { Machine } from "@/lib/types";
 
 const LEVEL_COLORS: Record<Machine["level"], string> = {
@@ -100,6 +101,9 @@ export function MachineCard({ machine, rank }: { machine: Machine; rank: number 
             ))}
           </ul>
         </div>
+
+        {/* Carnet d'entrainement */}
+        <MachineLog machine={machine} />
       </div>
     </article>
   );

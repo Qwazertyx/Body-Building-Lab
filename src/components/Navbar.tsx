@@ -2,19 +2,36 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useSettings } from "@/lib/i18n";
 import { UI } from "@/lib/ui-strings";
+import { SearchPalette } from "@/components/SearchPalette";
 
 const NAV = [
   { href: "/", key: "home" as const },
   { href: "/nutrition", key: "nutrition" as const },
   { href: "/mobilite", key: "mobility" as const },
+  { href: "/outils", key: "tools" as const },
+  { href: "/journal", key: "journal" as const },
   { href: "/parametres", key: "settings" as const },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const { lang, toggleLang, theme, toggleTheme } = useSettings();
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  // Raccourci clavier Ctrl/Cmd + K pour ouvrir la recherche.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen((o) => !o);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -49,6 +66,14 @@ export function Navbar() {
 
         <div className="flex items-center gap-1.5 shrink-0">
           <button
+            onClick={() => setSearchOpen(true)}
+            aria-label={UI.search.open[lang]}
+            title={UI.search.open[lang]}
+            className="grid h-9 w-9 place-items-center rounded-lg border border-app bg-card text-base transition-colors hover:bg-card-hover"
+          >
+            🔍
+          </button>
+          <button
             onClick={toggleTheme}
             aria-label={theme === "dark" ? "Passer en clair" : "Passer en sombre"}
             title={theme === "dark" ? UI.settings.light[lang] : UI.settings.dark[lang]}
@@ -65,6 +90,8 @@ export function Navbar() {
           </button>
         </div>
       </div>
+
+      <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }
