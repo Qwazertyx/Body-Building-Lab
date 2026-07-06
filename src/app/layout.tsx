@@ -79,7 +79,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <FavoritesProvider>
             <WorkoutLogProvider>
               <Navbar />
-              <main className="mx-auto w-full max-w-6xl px-4 pb-24 pt-4 sm:px-6">{children}</main>
+              <main className="mx-auto w-full max-w-6xl px-4 pb-4 pt-4 sm:px-6">{children}</main>
+              <footer className="mx-auto w-full max-w-6xl px-4 pb-28 pt-2 sm:px-6">
+                <div className="border-t border-app pt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+                  <a href="/mentions-legales" className="text-xs text-muted-app hover:text-app transition-colors">Mentions légales</a>
+                  <a href="/confidentialite" className="text-xs text-muted-app hover:text-app transition-colors">Confidentialité</a>
+                  <a href="/cgu" className="text-xs text-muted-app hover:text-app transition-colors">CGU</a>
+                  <span className="text-xs text-muted-app">© {new Date().getFullYear()} VicoBBL</span>
+                </div>
+              </footer>
               <RestTimer />
               <ServiceWorkerRegister />
             </WorkoutLogProvider>
